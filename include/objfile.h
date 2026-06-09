@@ -1,7 +1,7 @@
 /* ============================================================================
- * objfile.h  -  Formato objeto y tablas de salida
+ * objfile.h  
  *
- * Responsabilidad (Integrante 4):
+ * Responsabilidad (Lair):
  * ==========================================================================*/
 #ifndef IA32_OBJFILE_H
 #define IA32_OBJFILE_H
@@ -13,16 +13,14 @@
 
 /* Una relocacion final, tal como se guarda en el .o. */
 typedef struct {
-    SectionId section;       /* seccion donde esta el campo a parchar         */
-    long      offset;        /* offset del campo dentro de la seccion         */
-    char      sym[MAXNAME];  /* simbolo objetivo                              */
-    RelocKind kind;          /* ABS32 / REL32                                 */
-    long      addend;        /* constante adicional                           */
+    SectionId section;    
+    long      offset;        
+    char      sym[MAXNAME];  
+    RelocKind kind;        
+    long      addend;      
 } Reloc;
 
-/* -------------------------------------------------------------------------
- * Modulo objeto en construccion (lado ensamblador / escritura).
- * ----------------------------------------------------------------------- */
+
 typedef struct {
     ByteBuf text;          
     ByteBuf data;           
