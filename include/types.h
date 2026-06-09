@@ -1,6 +1,5 @@
 /* ============================================================================
- * types.h  -  Tipos y constantes comunes a todo el proyecto
- * Proyecto: ia32-assembler-linker (EPC 2026-2, UNAM)
+ * types.h  TRABAJO EN COMUN 
  *
  * Aqui se definen los tipos base que comparten el lexer, el parser, el
  * ensamblador, el encoder y el linker. Mantener estas definiciones en un
