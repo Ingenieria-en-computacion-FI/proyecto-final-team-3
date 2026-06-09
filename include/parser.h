@@ -1,10 +1,8 @@
 /* ============================================================================
- * parser.h  -  Analizador sintactico MANUAL (sin yacc/bison)
- *
- * Responsabilidad (Integrante 2):
- *   - Consumir los tokens del lexer y construir una representacion interna
+ * Responsabilidad (Sofia):
+ *   -Consumir los tokens del lexer y construir una representacion interna
  *     "Statement" por cada linea: etiqueta, directiva o instruccion.
- *   - Parsear operandos y modos de direccionamiento (registro, inmediato,
+ *   -Parsear operandos y modos de direccionamiento (registro, inmediato,
  *     memoria directa, base+desplazamiento, base+indice, base+indice*escala,
  *     base+indice*escala+desplazamiento).
  * ==========================================================================*/
@@ -17,22 +15,21 @@
 /* Clase de operando. */
 typedef enum {
     OPND_NONE,
-    OPND_REG,    /* un registro                                              */
-    OPND_IMM,    /* inmediato (valor) o simbolo usado como direccion         */
+    OPND_REG,   
+    OPND_IMM,    
     OPND_MEM     /* referencia a memoria [ ... ]                             */
 } OperandKind;
 
-/* Un operando completo. Para OPND_MEM se usan base/index/scale/disp; un
-   simbolo dentro de corchetes (p. ej. [msg+4]) se guarda en sym/has_sym. */
+
 typedef struct {
     OperandKind kind;
 
-    Register reg;            /* OPND_REG                                      */
+    Register reg;                                          
 
-    long     imm;            /* OPND_IMM: valor inmediato                     */
+    long     imm;                          
 
-    Register base;           /* OPND_MEM: registro base  (o REG_NONE)         */
-    Register index;          /* OPND_MEM: registro indice (o REG_NONE)        */
+    Register base;           /* OPND_MEM: registro base        */
+    Register index;          /* OPND_MEM: registro indice       */
     int      scale;          /* OPND_MEM: 1,2,4,8                             */
     long     disp;           /* OPND_MEM: desplazamiento literal              */
 
@@ -52,11 +49,10 @@ typedef struct {
     StmtType type;
     int      line;
 
-    /* Etiqueta opcional definida al inicio de la linea (label:). */
+
     char     label[MAXNAME];
     int      has_label;
 
-    /* --- instruccion --- */
     char     mnemonic[MAXNAME];
     Operand  ops[MAX_OPERANDS];
     int      nops;
@@ -78,7 +74,7 @@ typedef struct {
 
 typedef struct {
     Lexer       lx;
-    Token       cur;          /* token de lookahead                          */
+    Token       cur;         
     const char *filename;
     int         error_count;
 } Parser;
