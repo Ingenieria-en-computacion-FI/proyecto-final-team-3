@@ -1,5 +1,5 @@
 /* ============================================================================
- * util.h  -  Utilidades generales
+ * util.h Trabajo en comun 
  *  - Reporte de errores
  *  - Memoria segura (xmalloc / xrealloc / xstrdup)
  *  - Buffer de bytes dinamico (ByteBuf) usado para el codigo de cada seccion
