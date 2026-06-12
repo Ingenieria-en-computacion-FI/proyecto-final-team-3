@@ -2,6 +2,7 @@
 section .text
 global _start
 _start:
+; Error: Símbolo no identificado
     jmp adelate       ; el destino aun no se conoce
     mov eax, 1
 adelante:
