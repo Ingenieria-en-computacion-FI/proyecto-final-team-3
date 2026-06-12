@@ -7,14 +7,14 @@ section .text
     global _start
 
 _start:
-    ; --- syscall: sys_write (ID 4) ---
+    ; Error: Registro no soportado
     mov efx, 4          ; ID de la función write
     mov ebx, 1          ; File descriptor: STDOUT (pantalla)
     mov ecx, msg        ; Dirección del mensaje
     mov edx, len        ; Longitud del mensaje
     int 0x80            ; Llamada al kernel
 
-    ; --- syscall: sys_exit (ID 1) ---
+    ; Error: Registro no soportado
     mov egx, 1          ; ID de la función exit
     mov ebx, 0          ; Código de retorno (0 = sin errores)
     int 0x80            ; Llamada al kernel
