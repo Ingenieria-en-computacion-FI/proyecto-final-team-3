@@ -32,7 +32,8 @@ run() {            # run <descripcion> <comando...>
         printf "  [FALLA] %s " "$desc"
         # Se muestra la línea y archivo del error arrojado por el ensamblador
         if [ -s "$TMP_ERR" ]; then
-            echo "          ↳ Detalle:"
+            echo
+            echo "          Detalles:"
             sed 's/^/            /' "$TMP_ERR" # Agrega sangría al error
         fi
         fallos=$((fallos+1))
@@ -57,12 +58,13 @@ run "$LINENO" "assembler2  mod1" ./assembler2 examples/mod1.asm "$BUILD/mod1"
 run "$LINENO" "assembler2  mod2" ./assembler2 examples/mod2.asm "$BUILD/mod2"
 run "$LINENO" "minilinker  mod1+mod2" ./minilinker "$BUILD/mod1.o" "$BUILD/mod2.o" "$BUILD/program.hex"
 
-# Define aquí exactamente cuáles pruebas quieres correr separados por un espacio
+echo
 echo "============================================================"
 echo "Programas de ejemplo general"
 echo "============================================================"
 
 for test in test1 test2; do
+    echo
     echo "============================================================"
     echo " Procesando: $test"
     echo "============================================================"
